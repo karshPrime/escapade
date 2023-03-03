@@ -4,10 +4,10 @@ namespace escapade;
 
 public class Mouse
 {
-    public readonly Bitmap cursor = new Bitmap("cursor", "cursor.png");
+    private readonly Bitmap _cursor = new Bitmap("cursor", "cursor.png");
 
     public void Draw()
     {
-        cursor.Draw(SplashKit.MouseX(), SplashKit.MouseY());
+        _cursor.Draw(SplashKit.MouseX(), SplashKit.MouseY());
     }
 }
