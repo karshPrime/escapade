@@ -10,6 +10,8 @@ namespace escapade
             new Window("escapade", 1500, 900);
             SplashKit.HideMouse();
 
+            Mouse cursor = new Mouse();
+
             bool quitGame = QuitGame();
             while (!quitGame)
             {
@@ -18,7 +20,7 @@ namespace escapade
                 SplashKit.ClearScreen();   // clears the screen
                 
                 Controls();
-                Draw();
+                Draw(cursor);
                 
                 SplashKit.RefreshScreen(60);
             }
@@ -38,9 +40,9 @@ namespace escapade
         }
 
         // Draw everything on the screen
-        private static void Draw()
+        private static void Draw(Mouse cursor)
         {
-            
+            cursor.Draw();
         }
     }
 }
