@@ -1,6 +1,13 @@
 using System;
 using SplashKitSDK;
 
+/*                    _
+ *     _ __ ___   __ _(_)_ __
+ *    | '_ ` _ \ / _` | | '_ \
+ *    | | | | | | (_| | | | | |
+ *    |_| |_| |_|\__,_|_|_| |_|
+ */
+
 namespace escapade
 {
     public class Program

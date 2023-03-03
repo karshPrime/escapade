@@ -1,5 +1,11 @@
 using SplashKitSDK;
 
+/*     _ __ ___   ___  _   _ ___  ___
+ *    | '_ ` _ \ / _ \| | | / __|/ _ \
+ *    | | | | | | (_) | |_| \__ |  __/
+ *    |_| |_| |_|\___/ \__,_|___/\___|
+ */    
+
 namespace escapade;
 
 public class Mouse

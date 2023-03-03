@@ -1,5 +1,13 @@
 using SplashKitSDK;
 
+/*     _
+ *    | | __ _ _   _  ___ _ __ ___
+ *    | |/ _` | | | |/ _ | '__/ __|
+ *    | | (_| | |_| |  __| |  \__ \
+ *    |_|\__,_|\__, |\___|_|  |___/
+ *             |___/
+ */
+
 namespace escapade;
 
 public class Layers
@@ -18,8 +26,7 @@ public class Layers
     public void Move(bool direction)
     {   
         // direction 1 is forward and 0 is backward
-        if (direction)
-        {
+        if (direction) {   // preventing media from moving off the screen
             _deduction = _floorPosition == 0 ? (short)0 : (short)2;
         } else {
             _deduction = _floorPosition == -5844 ? (short)0 : (short)-2;
