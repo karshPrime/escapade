@@ -17,7 +17,8 @@ namespace escapade
                 quitGame = QuitGame();
                 SplashKit.ClearScreen();   // clears the screen
                 
-                // code
+                Controls();
+                Draw();
                 
                 SplashKit.RefreshScreen(60);
             }
@@ -31,13 +32,13 @@ namespace escapade
         }
 
         // Take user input and trigger specific action
-        public static void Controls()
+        private static void Controls()
         {
             
         }
 
         // Draw everything on the screen
-        public static void Draw()
+        private static void Draw()
         {
             
         }
