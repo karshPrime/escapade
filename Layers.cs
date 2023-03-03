@@ -13,17 +13,17 @@ public class Layers
     private double _floorPosition = 0.0;
     private double _platformPosition = 0.0;
     private double _topDecorPosition = 0.0;
-    private double _deduction = 0.0;
+    private short _deduction = 0;
 
     public void Move(bool direction)
     {   
         // direction 1 is forward and 0 is backward
-        if (direction) { _deduction = 1.0; } else { _deduction = -1.0; }
+        if (direction) { _deduction = 2; } else { _deduction = -2; }
 
-        _elementsPosition -= (_deduction * 0.6); // bg elements is 40% slower than platform
+        _elementsPosition -= (_deduction * 0.9); // bg elements is 40% slower than platform
         _floorPosition    -= _deduction; 
         _platformPosition -= _deduction;
-        _topDecorPosition -= (_deduction * 0.7); // top decor is 30% slower than platform
+        _topDecorPosition -= (_deduction * 0.4); // top decor is 30% slower than platform
     }
 
     public void Draw(int layerId)

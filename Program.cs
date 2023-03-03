@@ -37,7 +37,12 @@ namespace escapade
         // Take user input and trigger specific action
         private static void Controls(Layers layers)
         {
-            
+            // Individual If statements to accept multiple click at once
+            if (SplashKit.KeyDown(KeyCode.AKey)) {             // left
+                layers.Move(false);
+            } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // right
+                layers.Move(true);
+            } 
         }
 
         // Draw everything on the screen
