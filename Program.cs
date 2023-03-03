@@ -7,7 +7,7 @@ namespace escapade
     {
         public static void Main()
         {
-            new Window("escapade", 1563, 900);
+            new Window("escapade", 1563, 850);
             SplashKit.HideMouse();
 
             Mouse cursor = new Mouse();
