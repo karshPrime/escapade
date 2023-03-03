@@ -7,10 +7,11 @@ namespace escapade
     {
         public static void Main()
         {
-            new Window("escapade", 1500, 900);
+            new Window("escapade", 1563, 900);
             SplashKit.HideMouse();
 
             Mouse cursor = new Mouse();
+            Layers layers = new Layers();
 
             bool quitGame = QuitGame();
             while (!quitGame)
@@ -19,8 +20,8 @@ namespace escapade
                 quitGame = QuitGame();
                 SplashKit.ClearScreen();   // clears the screen
                 
-                Controls();
-                Draw(cursor);
+                Controls(layers);
+                Draw(cursor, layers);
                 
                 SplashKit.RefreshScreen(60);
             }
@@ -34,15 +35,21 @@ namespace escapade
         }
 
         // Take user input and trigger specific action
-        private static void Controls()
+        private static void Controls(Layers layers)
         {
             
         }
 
         // Draw everything on the screen
-        private static void Draw(Mouse cursor)
+        private static void Draw(Mouse cursor, Layers layers)
         {
-            cursor.Draw();
+            layers.Draw(0);             // background
+            layers.Draw(1);             // background elements: trees/stones
+            layers.Draw(2);             // walking platform
+            // player
+            layers.Draw(3);             // floor
+            layers.Draw(4);             // top decoration
+            cursor.Draw();              // mouse cursor
         }
     }
 }
