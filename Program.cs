@@ -39,10 +39,13 @@ namespace escapade
         {
             // Individual If statements to accept multiple click at once
             if (SplashKit.KeyDown(KeyCode.AKey)) {             // left
-                layers.Move(false);
-            } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // right
                 layers.Move(true);
-            } 
+            } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // right
+                layers.Move(false);
+            }
+            
+            // debugging controls
+            if (SplashKit.KeyDown(KeyCode.LKey)) { layers.Debug(); } 
         }
 
         // Draw everything on the screen
