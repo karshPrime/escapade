@@ -52,7 +52,10 @@ namespace escapade
             }
             
             // debugging controls
-            if (SplashKit.KeyDown(KeyCode.LKey)) { layers.Debug(); } 
+            if (SplashKit.KeyDown(KeyCode.LKey))
+            {
+                layers.Debug();
+            } 
         }
 
         // Draw everything on the screen
@@ -62,7 +65,9 @@ namespace escapade
             layers.Draw(1);             // background elements: trees/stones
             layers.Draw(2);             // walking platform
             // player
+            // enemies
             layers.Draw(3);             // floor
+            // jump flowers
             layers.Draw(4);             // top decoration
             cursor.Draw();              // mouse cursor
         }
