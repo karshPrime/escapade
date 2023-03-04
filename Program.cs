@@ -46,7 +46,7 @@ namespace escapade
             // Individual If statements to accept multiple click at once
             if (SplashKit.KeyDown(KeyCode.AKey)) {             // backward
                 layers.Move(false);
-                
+
             } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // forward
                 layers.Move(true);
             }
