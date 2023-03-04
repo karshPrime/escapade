@@ -4,9 +4,9 @@ using SplashKitSDK;
  *    | '_ ` _ \ / _ \| | | / __|/ _ \
  *    | | | | | | (_) | |_| \__ |  __/
  *    |_| |_| |_|\___/ \__,_|___/\___|
- */    
+ */
 
-namespace escapade;
+namespace escapade.SrcEntities;
 
 public class Mouse
 {

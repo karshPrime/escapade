@@ -8,7 +8,7 @@ using SplashKitSDK;
  *             |___/
  */
 
-namespace escapade;
+namespace escapade.SrcEntities;
 
 public class Layer
 {
@@ -34,7 +34,7 @@ public class Layer
     }
 
     public void Display()
-    { 
+    {
         _layer.Draw(_xCord, 0);
     }
 }
