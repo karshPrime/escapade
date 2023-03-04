@@ -24,18 +24,25 @@ public class Layers
     private short _deduction = 0;
 
     public void Move(bool direction)
-    {   
+    {
+        // dont move if screen's already at the start or the end
+        if (RestrictMove(direction)) return;
+        
         // direction 1 is forward and 0 is backward
-        if (direction) {   // preventing media from moving off the screen
-            _deduction = _floorPosition == 0 ? (short)0 : (short)2;
-        } else {
-            _deduction = _floorPosition == -5844 ? (short)0 : (short)-2;
-        }
+        _deduction = direction ? (short)-2 : (short)2;
 
-        _elementsPosition += (_deduction * 0.9); // bg elements is 40% slower than platform
-        _floorPosition    += _deduction; 
+        _elementsPosition += (_deduction * 0.9); // bg elements is 10% slower than platform
+        _floorPosition += _deduction;
         _platformPosition += _deduction;
-        _topDecorPosition += (_deduction * 0.4); // top decor is 30% slower than platform
+        _topDecorPosition += (_deduction * 0.4); // top decor is 60% slower than platform
+    }
+
+    private bool RestrictMove(bool direction)
+    {
+        // direction 1 is forward and 0 is backward
+        if (direction) { return _floorPosition == -5844; }
+
+        return _floorPosition is (0 or -5844);
     }
 
     public void Draw(int layerId)

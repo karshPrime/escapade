@@ -32,7 +32,6 @@ namespace escapade
                 
                 SplashKit.RefreshScreen(60);
             }
-
         }
 
         // quit the game
@@ -45,10 +44,11 @@ namespace escapade
         private static void Controls(Layers layers)
         {
             // Individual If statements to accept multiple click at once
-            if (SplashKit.KeyDown(KeyCode.AKey)) {             // left
-                layers.Move(true);
-            } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // right
+            if (SplashKit.KeyDown(KeyCode.AKey)) {             // backward
                 layers.Move(false);
+                
+            } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // forward
+                layers.Move(true);
             }
             
             // debugging controls
