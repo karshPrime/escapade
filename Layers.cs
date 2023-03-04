@@ -17,28 +17,24 @@ public class Layers
     private readonly Bitmap _floor = new Bitmap("floor", "floor.png");
     private readonly Bitmap _platform = new Bitmap("platform", "platform.png");
     private readonly Bitmap _topDecor = new Bitmap("top_decor", "top_decor.png");
-    public int floorPosition = 0;
-    private short _deduction = 0;
     private double _elementsPosition = 0.0;
     private double _topDecorPosition = 0.0;
+    public short floorPosition = 0;
 
-    public void Move(bool direction)
+    public void Move(sbyte direction)
     {
         // dont move if screen's already at the start or the end
         if (RestrictMove(direction)) return;
-        
-        // direction 1 is forward and 0 is backward
-        _deduction = direction ? (short)-2 : (short)2;
 
-        floorPosition     += _deduction;
-        _elementsPosition += (_deduction * 0.9); // bg elements is 10% slower than platform
-        _topDecorPosition += (_deduction * 0.4); // top decor is 60% slower than platform
+        floorPosition     +=  direction;
+        _elementsPosition += (direction * 0.9); // bg elements is 10% slower than platform
+        _topDecorPosition += (direction * 0.4); // top decor is 60% slower than platform
     }
 
-    private bool RestrictMove(bool direction)
+    private bool RestrictMove(sbyte deduction)
     {
         // direction 1 is forward and 0 is backward
-        if (direction) { return floorPosition == -5844; }
+        if (deduction == -2) { return floorPosition == -5844; }
 
         return floorPosition is (0 or -5844);
     }
@@ -59,6 +55,6 @@ public class Layers
     // print data on terminal 
     public void Debug()
     {
-        Console.WriteLine("floorPosition: {0}", floorPosition);
+        Console.WriteLine($"floorPosition: {floorPosition}");
     }
 }
