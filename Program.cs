@@ -12,23 +12,29 @@ namespace escapade
 {
     public class Program
     {
+        private static short _position;
         public static void Main()
         {
             new Window("escapade", 1563, 850);
             SplashKit.HideMouse();
 
+            // initiating class instances 
             Mouse cursor = new Mouse();
-            Layers layers = new Layers();
+            Layer[] bgLayers = { new Layer("background", 0),
+                                 new Layer("elements", 1.76f),
+                                 new Layer("floor", 2),
+                                 new Layer("platform", 2),
+                                 new Layer("top_decor", 0.8f) };
 
-            bool quitGame = QuitGame();
+            bool quitGame = false;
             while (!quitGame)
             {
                 SplashKit.ProcessEvents(); // Handle input to adjust player movement
                 quitGame = QuitGame();
                 SplashKit.ClearScreen();   // clears the screen
                 
-                Controls(layers);
-                Draw(cursor, layers);
+                Controls(bgLayers);
+                Display(bgLayers, cursor);
                 
                 SplashKit.RefreshScreen(60);
             }
@@ -41,35 +47,35 @@ namespace escapade
         }
 
         // Take user input and trigger specific action
-        private static void Controls(Layers layers)
+        private static void Controls(Layer[] layers)
         {
             // Individual If statements to accept multiple click at once
-            if (SplashKit.KeyDown(KeyCode.AKey)) {             // backward
-                layers.Move(2);
-
-            } else if (SplashKit.KeyDown(KeyCode.DKey)) {      // forward
-                layers.Move(-2);
-            }
-            
-            // debugging controls
-            if (SplashKit.KeyDown(KeyCode.LKey))
+            if (SplashKit.KeyDown(KeyCode.AKey))
             {
-                layers.Debug();
+                if (_position is 0 or -5844) return;
+                _position += 2;
+                foreach (var layer in layers) { layer.Backward(); }
             } 
+            else if (SplashKit.KeyDown(KeyCode.DKey))
+            {
+                if (_position == -5844) return;
+                _position -= 2;
+                foreach (var layer in layers) { layer.Forward(); }
+            }
         }
 
         // Draw everything on the screen
-        private static void Draw(Mouse cursor, Layers layers)
+        private static void Display(Layer[] bgLayer, Mouse cursor)
         {
-            layers.Draw(0);             // background
-            layers.Draw(1);             // background elements: trees/stones
-            layers.Draw(2);             // walking platform
+            bgLayer[0].Display();     // background
+            bgLayer[1].Display();     // background elements: trees/stones
+            bgLayer[2].Display();     // walking platform
             // player
             // enemies
-            layers.Draw(3);             // floor
+            bgLayer[3].Display();     // floor
             // jump flowers
-            layers.Draw(4);             // top decoration
-            cursor.Draw();              // mouse cursor
+            bgLayer[4].Display();     // top decoration
+            cursor.Display();         // mouse cursor
         }
     }
 }

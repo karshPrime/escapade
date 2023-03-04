@@ -12,7 +12,7 @@ public class Mouse
 {
     private readonly Bitmap _cursor = new Bitmap("cursor", "cursor.png");
 
-    public void Draw()
+    public void Display()
     {
         _cursor.Draw(SplashKit.MouseX(), SplashKit.MouseY());
     }
