@@ -19,6 +19,7 @@ public class Program
     {
         new Window("escapade", 1563, 850);
         SplashKit.HideMouse();
+        byte cooldownControl = 0;
 
         // initiating class instances 
         Mouse cursor = new Mouse();
@@ -32,6 +33,15 @@ public class Program
         {
             SplashKit.ProcessEvents(); // Handle input to adjust player movement
             SplashKit.ClearScreen();   // clears the screen
+
+            // global cooldown for all 
+            // WriteLine commands would be replaced by certain method calls
+            cooldownControl += 1;
+            if (cooldownControl % 2  == 0) {Console.WriteLine("2 ticks cooldown");}
+            if (cooldownControl % 3  == 0) {Console.WriteLine("3 ticks cooldown");}
+            if (cooldownControl % 5  == 0) {Console.WriteLine("5 ticks cooldown");}
+            if (cooldownControl % 10 == 0) {Console.WriteLine("10 ticks cooldown");}
+            if (cooldownControl == 10) {cooldownControl = 0;}
 
             Controls(bgLayers);
             Display(bgLayers, cursor);
