@@ -24,8 +24,8 @@ public class Program
         Mouse cursor = new Mouse();
         Layer[] bgLayers = { new Layer("background", 0),
             new Layer("elements", 1.76f),
+            new Layer("platform", 2), // y = 572
             new Layer("floor", 2),
-            new Layer("platform", 2),
             new Layer("top_decor", 0.8f) };
 
         bool quitGame = false;
@@ -34,7 +34,7 @@ public class Program
             SplashKit.ProcessEvents(); // Handle input to adjust player movement
             quitGame = QuitGame();
             SplashKit.ClearScreen();   // clears the screen
-                
+
             Controls(bgLayers);
             Display(bgLayers, cursor);
                 
