@@ -21,4 +21,9 @@ public class Player : Characters
     {
         // update character's movement is _isJumping = true
     }
+
+    public override void Death()
+    {
+        // player loses; game over.
+    }
 }

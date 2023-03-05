@@ -49,10 +49,7 @@ public class Characters
     }
 
     // character death effect
-    private void Death()
-    {
-        // poof
-    }
+    protected virtual void Death() {  } // different for different entities
 
     public void Display()
     {

@@ -9,4 +9,9 @@ public class Slimes : Characters
     {
         // slimes bounce to walk; add that effect
     }
+    
+    public override void Death()
+    {
+        // poof the slime
+    }
 }

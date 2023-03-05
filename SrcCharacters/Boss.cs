@@ -14,4 +14,9 @@ public class Boss : Characters
     {
         // boss will bounce on its location; add that effect
     }
+    
+    public override void Death()
+    {
+        // player wins; game over.
+    }
 }
