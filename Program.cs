@@ -64,6 +64,12 @@ public class Program
             _position -= 2;
             foreach (var layer in layers) { layer.Forward(); }
         }
+
+        // Debugging use
+        if (SplashKit.KeyDown(KeyCode.PKey))
+        {
+            Console.WriteLine($"Mouse Cords: x={SplashKit.MouseX()}, y={SplashKit.MouseY()}");
+        }
     }
 
     // Draw everything on the screen
