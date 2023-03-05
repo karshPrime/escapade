@@ -27,12 +27,10 @@ public class Program
             new Layer("platform", 2), // y = 572
             new Layer("floor", 2),
             new Layer("top_decor", 0.8f) };
-
-        bool quitGame = false;
-        while (!quitGame)
+        
+        while (!QuitGame())
         {
             SplashKit.ProcessEvents(); // Handle input to adjust player movement
-            quitGame = QuitGame();
             SplashKit.ClearScreen();   // clears the screen
 
             Controls(bgLayers);
@@ -45,7 +43,7 @@ public class Program
     // quit the game
     private static bool QuitGame()
     {
-        return (SplashKit.KeyDown(KeyCode.QKey) || SplashKit.QuitRequested());
+        return SplashKit.KeyDown(KeyCode.QKey) || SplashKit.QuitRequested();
     }
 
     // Take user input and trigger specific action
