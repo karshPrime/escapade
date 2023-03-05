@@ -6,7 +6,7 @@ using SplashKitSDK;
  *    |_| |_| |_|\___/ \__,_|___/\___|
  */
 
-namespace escapade.SrcEntities;
+namespace Escapade.SrcEntities;
 
 public class Mouse
 {

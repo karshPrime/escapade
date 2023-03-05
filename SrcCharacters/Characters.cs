@@ -8,7 +8,7 @@ using SplashKitSDK;
  *      \___|_| |_|\__,_|_|  \__,_|\___|\__\___|_|  |___/
  */
 
-namespace escapade.SrcCharacters;
+namespace Escapade.SrcCharacters;
 
 public class Characters
 {
@@ -49,7 +49,7 @@ public class Characters
     }
 
     // character death effect
-    protected virtual void Death() {  } // different for different entities
+    public virtual void Death() {  } // different for different entities
 
     public void Display()
     {

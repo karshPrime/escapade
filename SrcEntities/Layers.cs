@@ -8,7 +8,7 @@ using SplashKitSDK;
  *             |___/
  */
 
-namespace escapade.SrcEntities;
+namespace Escapade.SrcEntities;
 
 public class Layer
 {

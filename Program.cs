@@ -1,7 +1,7 @@
 using System;
 using SplashKitSDK;
-//using Escapade.SrcCharacters;
-using escapade.SrcEntities;
+using Escapade.SrcCharacters;
+using Escapade.SrcEntities;
 
 /*                    _
  *     _ __ ___   __ _(_)_ __

@@ -1,4 +1,4 @@
-namespace escapade.SrcCharacters;
+namespace Escapade.SrcCharacters;
 
 public class Boss : Characters
 {
