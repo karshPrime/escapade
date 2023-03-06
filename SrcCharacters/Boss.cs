@@ -14,6 +14,11 @@ public class Boss : Characters
     {
         // boss will bounce on its location; add that effect
     }
+
+    public void Attack()
+    {
+        // boss attacks
+    }
     
     public override void Death()
     {
