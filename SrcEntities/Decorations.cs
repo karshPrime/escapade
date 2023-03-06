@@ -1,18 +1,17 @@
-/*
- * using SplashKitSDK;
+using SplashKitSDK;
 
+namespace Escapade.SrcEntities;
 
-namespace escapade.SrcEntities;
-
-public class Decorations : SrcEntities.Layer
+public class Decorations : Layer
 {
-    private Bitmap _layer;
-    private float _speed;
-    private float _xCord;
-
+    public Decorations(string name) : base(name, 2)
+    {
+    }
+    
+    // animation capabilities
     public void Animate()
     {
-        Console.WriteLine("hello world");
+        // commands to animate sprite
     }
 }
 */
