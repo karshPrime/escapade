@@ -16,29 +16,15 @@ public class Characters
     protected byte _health;
     protected bool _isHurt;
     public short cordsX;
-    public short cordsY;
+    public float cordsY;
 
-    protected Characters(byte health, short startX, short startY, string name)
+    protected Characters(byte health, short startX, float startY, string name)
     {
         _character = new Bitmap(name, $"{name}.png");
         _health = health;
         _isHurt = false;
         cordsX = startX;
         cordsY = startY;
-    }
-
-    public void Animate(char action)
-    {
-        switch (action)
-        {
-            // instead of printing name of the action; trigger a method for it.
-            case 'a': Console.WriteLine("attack"); break;
-            case 'b': Console.WriteLine("backward"); break;
-            case 'f': Console.WriteLine("forward"); break;
-            case 'i': Console.WriteLine("idle"); break;
-            case 'j': Console.WriteLine("jump"); break;
-            case 'h': Console.WriteLine("hurt"); break;
-        }
     }
 
     // decrease character's health
