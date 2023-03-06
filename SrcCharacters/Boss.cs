@@ -1,5 +1,10 @@
 namespace Escapade.SrcCharacters;
-
+/*      _
+ *     | |__   ___  ___ ___
+ *     | '_ \ / _ \/ __/ __|
+ *     | |_) | (_) \__ \__ \
+ *     |_.__/ \___/|___|___/
+ */          
 public class Boss : Characters
 {
     private bool _spawn;

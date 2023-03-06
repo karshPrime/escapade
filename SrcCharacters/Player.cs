@@ -1,5 +1,14 @@
-namespace Escapade.SrcCharacters;
+using SplashKitSDK;
 
+/*             _
+ *       _ __ | | __ _ _   _  ___ _ __
+ *      | '_ \| |/ _` | | | |/ _ | '__|
+ *      | |_) | | (_| | |_| |  __| |
+ *      | .__/|_|\__,_|\__, |\___|_|
+ *      |_|            |___/
+ */
+
+namespace Escapade.SrcCharacters;
 public class Player : Characters
 {
     private byte _kills;

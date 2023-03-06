@@ -1,5 +1,12 @@
 using SplashKitSDK;
 
+/*         _         __  __
+ *     ___| |_ __ _ / _|/ _|
+ *    / __| __/ _` | |_| |_
+ *    \__ | || (_| |  _|  _|
+ *    |___/\__\__,_|_| |_|
+ */
+
 namespace Escapade.SrcEntities;
 
 public class Staff : Layer
