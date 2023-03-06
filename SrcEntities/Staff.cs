@@ -23,6 +23,14 @@ public class Staff : Layer
         _ground = playerY;
     }
 
+    public void Shoot()
+    {
+        if (_isShooting) return;
+        _target[0] = SplashKit.MouseX();
+        _target[1] = SplashKit.MouseY();
+        _isShooting = true;
+    }
+
     public void Shooting()
     {
         if (_isShooting)
