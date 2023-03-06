@@ -64,15 +64,27 @@ public class Program
         // Individual If statements to accept multiple click at once
         if (SplashKit.KeyDown(KeyCode.AKey))
         {
-            if (_position is 0 or -5844) return;
-            _position += 2;
-            foreach (var layer in layers) { layer.Backward(); }
+            if (_position is 0 or -5844)
+            {
+                // move player around the screen
+            }
+            else
+            {
+                _position += 2;
+                foreach (var layer in layers) { layer.Backward(); }   
+            }
         } 
         else if (SplashKit.KeyDown(KeyCode.DKey))
         {
-            if (_position == -5844) return;
-            _position -= 2;
-            foreach (var layer in layers) { layer.Forward(); }
+            if (_position == -5844)
+            {
+                // only allow the player to move
+            }
+            else
+            {
+                _position -= 2;
+                foreach (var layer in layers) { layer.Forward(); }
+            }
         }
 
         if (SplashKit.KeyDown(KeyCode.WKey)) { zul.Jump(); }
