@@ -12,29 +12,31 @@ namespace Escapade.SrcEntities;
 
 public class Layer
 {
-    private Bitmap _layer;
-    private float _speed;
-    private float _xCord;
+    protected Bitmap _layer;
+    protected float _speed;
+    protected float _cordsX;
+    protected float _cordsY;
 
     public Layer(string name, float speed)
     {
         _layer = new Bitmap(name, $"{name}.png");
         _speed = speed;
-        _xCord = 0;
+        _cordsX = 0;
+        _cordsY = 0;
     }
 
     public void Forward()
     {
-        _xCord -= _speed;
+        _cordsX -= _speed;
     }
 
     public void Backward()
     {
-        _xCord += _speed;
+        _cordsX += _speed;
     }
 
     public void Display()
     {
-        _layer.Draw(_xCord, 0);
+        _layer.Draw(_cordsX, _cordsY);
     }
 }
