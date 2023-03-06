@@ -23,6 +23,8 @@ public class Program
 
         // initiating class instances 
         Mouse cursor = new Mouse();
+        Player zul = new Player();
+        Staff staff = new Staff();
         Layer[] bgLayers = { new Layer("background", 0),
             new Layer("elements", 1.76f),
             new Layer("platform", 2), // y = 572
@@ -43,7 +45,7 @@ public class Program
             if (cooldownControl % 10 == 0) {Console.WriteLine("10 ticks cooldown");}
             if (cooldownControl == 10) {cooldownControl = 0;}
 
-            Controls(bgLayers);
+            Controls(bgLayers, zul, staff);
             Display(bgLayers, cursor);
                 
             SplashKit.RefreshScreen(60);
@@ -57,7 +59,7 @@ public class Program
     }
 
     // Take user input and trigger specific action
-    private static void Controls(Layer[] layers)
+    private static void Controls(Layer[] layers, Player zul, Staff staff)
     {
         // Individual If statements to accept multiple click at once
         if (SplashKit.KeyDown(KeyCode.AKey))
@@ -72,6 +74,10 @@ public class Program
             _position -= 2;
             foreach (var layer in layers) { layer.Forward(); }
         }
+
+        if (SplashKit.KeyDown(KeyCode.WKey)) { zul.Jump(); }
+        
+        if (SplashKit.MouseClicked(MouseButton.LeftButton)) { staff.Shoot(); }
 
         // Debugging use
         if (SplashKit.KeyDown(KeyCode.PKey))
