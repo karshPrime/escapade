@@ -17,7 +17,7 @@ public class Player : Characters
     private float _fallSpeed;
     
     public Player()
-        : base(200, 0, 0, "zul")
+        : base(200, 0, 450, "zul")
     {
         _kills = 0;
         _isJumping = false;
