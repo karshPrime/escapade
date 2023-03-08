@@ -26,10 +26,10 @@ public class Program
         Player zul = new Player();
         Staff staff = new Staff();
         Layer[] bgLayers = { new Layer("background", 0),
-            new Layer("elements", 1.76f),
-            new Layer("platform", 2), // y = 572
-            new Layer("floor", 2),
-            new Layer("top_decor", 0.8f) };
+                             new Layer("elements", 1.76f),
+                             new Layer("platform", 2), // y = 572
+                             new Layer("floor", 2),
+                             new Layer("top_decor", 0.8f) };
         
         while (!QuitGame())
         {
@@ -39,11 +39,12 @@ public class Program
             // global cooldown for all 
             // WriteLine commands would be replaced by certain method calls
             cooldownControl += 1;
-            if (cooldownControl % 2  == 0) {Console.WriteLine("2 ticks cooldown");}
-            if (cooldownControl % 3  == 0) {Console.WriteLine("3 ticks cooldown");}
-            if (cooldownControl % 5  == 0) {Console.WriteLine("5 ticks cooldown");}
-            if (cooldownControl % 10 == 0) {Console.WriteLine("10 ticks cooldown");}
-            if (cooldownControl == 10) {cooldownControl = 0;}
+            //if (cooldownControl % 2  == 0) {Console.WriteLine("2 ticks cooldown");}
+            //if (cooldownControl % 3  == 0) {Console.WriteLine("3 ticks cooldown");}
+            //if (cooldownControl % 5  == 0) {Console.WriteLine("5 ticks cooldown");}
+            //if (cooldownControl % 10 == 0) {Console.WriteLine("10 ticks cooldown");}
+            //if (cooldownControl == 10) {cooldownControl = 0;}
+
 
             Controls(bgLayers, zul, staff);
             staff.UpdateGround(zul.CordsY);
