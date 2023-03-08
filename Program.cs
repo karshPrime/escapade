@@ -46,8 +46,11 @@ public class Program
             if (cooldownControl == 10) {cooldownControl = 0;}
 
             Controls(bgLayers, zul, staff);
-            Display(bgLayers, cursor);
-                
+            staff.UpdateGround(zul.CordsY);
+            staff.Hover();
+
+
+            Display(bgLayers, cursor, staff);
             SplashKit.RefreshScreen(60);
         }
     }
@@ -99,11 +102,12 @@ public class Program
     }
 
     // Draw everything on the screen
-    private static void Display(Layer[] bgLayer, Mouse cursor)
+    private static void Display(Layer[] bgLayer, Mouse cursor, Staff staff)
     {
         bgLayer[0].Display();     // background
         bgLayer[1].Display();     // background elements: trees/stones
         bgLayer[2].Display();     // walking platform
+        staff.Display();
         // player
         // enemies
         bgLayer[3].Display();     // floor
