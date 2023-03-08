@@ -98,7 +98,10 @@ public class Program
         // Debugging use
         if (SplashKit.KeyDown(KeyCode.PKey))
         {
-            Console.WriteLine($"Mouse Cords: x={SplashKit.MouseX()}, y={SplashKit.MouseY()}");
+            Console.WriteLine($"Mouse Cords  : x={SplashKit.MouseX()},\t \t y={SplashKit.MouseY()}");
+            Console.WriteLine($"Map Position : {_position}");
+            Console.WriteLine($"Player Cords : x={zul.CordsX},\t \t y={zul.CordsY}");
+            Console.WriteLine("===============");
         }
     }
 
