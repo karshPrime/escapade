@@ -15,10 +15,10 @@ public class Characters
     protected Bitmap _character;
     protected byte _health;
     protected bool _isHurt;
-    public short cordsX;
-    public float cordsY;
+    protected float cordsX;
+    protected float cordsY;
 
-    protected Characters(byte health, short startX, float startY, string name)
+    protected Characters(byte health, float startX, float startY, string name)
     {
         _character = new Bitmap(name, $"{name}.png");
         _health = health;

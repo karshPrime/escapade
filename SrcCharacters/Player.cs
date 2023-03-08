@@ -25,6 +25,10 @@ public class Player : Characters
         _fallSpeed = 1;
     }
 
+    public float CordsX => cordsX;
+    
+    public float CordsY => cordsY;
+
     public void Jump()
     {
         // initiate jump if not already jumping
