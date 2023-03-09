@@ -15,6 +15,11 @@ namespace Escapade;
 public class Program
 {
     private static short _position;
+    private static Mouse _cursor;
+    private static Player _zul;
+    private static Staff _staff;
+    private static Layer[] _bgLayers;
+
     public static void Main()
     {
         new Window("escapade", 1563, 850);
@@ -22,20 +27,24 @@ public class Program
         byte cooldownControl = 0;
 
         // initiating class instances 
-        Mouse cursor = new Mouse();
-        Player zul = new Player();
-        Staff staff = new Staff();
-        Layer[] bgLayers = { new Layer("background", 0),
-                             new Layer("elements", 1.76f),
-                             new Layer("platform", 2), // y = 572
-                             new Layer("floor", 2),
-                             new Layer("top_decor", 0.8f) };
+        _cursor = new Mouse();
+        _zul = new Player();
+        _staff = new Staff();
+        _bgLayers = { new Layer("background", 0),
+                      new Layer("elements", 1.76f),
+                      new Layer("platform", 2), // y = 572
+                      new Layer("floor", 2),
+                      new Layer("top_decor", 0.8f) };
         
         while (!QuitGame())
         {
             SplashKit.ProcessEvents(); // Handle input to adjust player movement
             SplashKit.ClearScreen();   // clears the screen
-
+            
+            Controls();
+            _staff.UpdateGround(_zul.CordsY);
+            _staff.Hover();
+            
             // global cooldown for all 
             // WriteLine commands would be replaced by certain method calls
             cooldownControl += 1;
@@ -44,14 +53,8 @@ public class Program
             //if (cooldownControl % 5  == 0) {Console.WriteLine("5 ticks cooldown");}
             //if (cooldownControl % 10 == 0) {Console.WriteLine("10 ticks cooldown");}
             //if (cooldownControl == 10) {cooldownControl = 0;}
-
-
-            Controls(bgLayers, zul, staff);
-            staff.UpdateGround(zul.CordsY);
-            staff.Hover();
-
-
-            Display(bgLayers, cursor, staff);
+            
+            Display();
             SplashKit.RefreshScreen(60);
         }
     }
@@ -63,7 +66,7 @@ public class Program
     }
 
     // Take user input and trigger specific action
-    private static void Controls(Layer[] layers, Player zul, Staff staff)
+    private static void Controls()
     {
         // Individual If statements to accept multiple click at once
         if (SplashKit.KeyDown(KeyCode.AKey))
@@ -75,7 +78,7 @@ public class Program
             else
             {
                 _position += 2;
-                foreach (var layer in layers) { layer.Backward(); }   
+                foreach (var layer in _bgLayers) { layer.Backward(); }   
             }
         } 
         else if (SplashKit.KeyDown(KeyCode.DKey))
@@ -87,36 +90,36 @@ public class Program
             else
             {
                 _position -= 2;
-                foreach (var layer in layers) { layer.Forward(); }
+                foreach (var layer in _bgLayers) { layer.Forward(); }
             }
         }
 
-        if (SplashKit.KeyDown(KeyCode.WKey)) { zul.Jump(); }
+        if (SplashKit.KeyDown(KeyCode.WKey)) { _zul.Jump(); }
         
-        if (SplashKit.MouseClicked(MouseButton.LeftButton)) { staff.Shoot(); }
+        if (SplashKit.MouseClicked(MouseButton.LeftButton)) { _staff.Shoot(); }
 
         // Debugging use
         if (SplashKit.KeyDown(KeyCode.PKey))
         {
             Console.WriteLine($"Mouse Cords  : x={SplashKit.MouseX()},\t \t y={SplashKit.MouseY()}");
             Console.WriteLine($"Map Position : {_position}");
-            Console.WriteLine($"Player Cords : x={zul.CordsX},\t \t y={zul.CordsY}");
+            Console.WriteLine($"Player Cords : x={_zul.CordsX},\t \t y={_zul.CordsY}");
             Console.WriteLine("===============");
         }
     }
 
     // Draw everything on the screen
-    private static void Display(Layer[] bgLayer, Mouse cursor, Staff staff)
+    private static void Display()
     {
-        bgLayer[0].Display();     // background
-        bgLayer[1].Display();     // background elements: trees/stones
-        bgLayer[2].Display();     // walking platform
-        staff.Display();
         // player
+        _bgLayers[0].Display();     // background
+        _bgLayers[1].Display();     // background elements: trees/stones
+        _bgLayers[2].Display();     // walking platform
+        _staff.Display();          // player's staff
         // enemies
-        bgLayer[3].Display();     // floor
+        _bgLayers[3].Display();     // floor
         // jump flowers
-        bgLayer[4].Display();     // top decoration
-        cursor.Display();         // mouse cursor
+        _bgLayers[4].Display();     // top decoration
+        _cursor.Display();         // mouse cursor
     }
 }
