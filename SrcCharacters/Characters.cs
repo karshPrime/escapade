@@ -15,16 +15,16 @@ public class Characters
     protected Bitmap _character;
     protected byte _health;
     protected bool _isHurt;
-    protected float cordsX;
-    protected float cordsY;
+    protected float _cordsX;
+    protected float _cordsY;
 
     protected Characters(byte health, float startX, float startY, string name)
     {
         _character = new Bitmap(name, $"{name}.png");
         _health = health;
         _isHurt = false;
-        cordsX = startX;
-        cordsY = startY;
+        _cordsX = startX;
+        _cordsY = startY;
     }
 
     // decrease character's health

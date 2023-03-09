@@ -25,10 +25,10 @@ public class Player : Characters
         _fallSpeed = 1;
     }
 
-    public float CordsX => cordsX;
-    
-    public float CordsY => cordsY;
+    public float CordsX => _cordsX;
 
+    public float CordsY => _cordsY;
+    
     public void Jump()
     {
         // initiate jump if not already jumping
@@ -39,7 +39,7 @@ public class Player : Characters
     {
         if (_isJumping)
         {
-            cordsY -= _fallSpeed;
+            _cordsY -= _fallSpeed;
             // update character's movement is _isJumping = true
             // end with changing _isJumping back to false
         }
